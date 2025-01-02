@@ -1,0 +1,2 @@
+这仅仅就是一个用djangdo框架和html+css和mysql数据库搭出来的一个简单的部分信息系统,供像我一样的初学者参考参考
+This is just a djangdo framework and html + css and mysql database out of a simple part of the information system, for beginners like me to refer to reference!
