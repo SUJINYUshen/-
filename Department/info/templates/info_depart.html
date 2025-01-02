@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department List</title>
+    <style>
+        /* 页面整体基础样式 */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* 全局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        /* 标题 */
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #4CAF50;
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* 创建按钮 */
+        .create-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .create-btn:hover {
+            background-color: #45a049;
+        }
+
+        .delete-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #f14a16;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #e44b1d;
+        }
+        .update-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #7e1ecc;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .update-btn:hover {
+            background-color: #ce33ce;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* 表头样式 */
+        th {
+            background: linear-gradient(to right, #4CAF50, #45a049);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* 单元格背景和文本颜色 */
+        td {
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        td:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        /* 奇偶行背景色 */
+        tr:nth-child(even) td {
+            background-color: #f3f3f3;
+        }
+
+        /* 鼠标悬停在行上的效果 */
+        tr:hover td {
+            background-color: #e1f5e3;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* 渐变动画 */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Department List</h1>
+
+        <!-- 创建按钮 -->
+        <a href="{% url 'department_create' %}" class="create-btn">Create New Department</a>
+        <a href="{% url 'department_delete' %}" class="delete-btn">Delete Department</a>
+        <a href="{% url 'department_update' %}" class="update-btn">update employee Information</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Sex</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in departments %}
+                    <tr>
+                        <td>{{ department.id }}</td>
+                        <td>{{ department.title }}</td>
+                        <td>{{ department.name }}</td>
+                        <td>{{ department.phone }}</td>
+                        <td>{{ department.sex }}</td>
+                        <td>{{ department.age }}</td>
+                        <td>{{ department.email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

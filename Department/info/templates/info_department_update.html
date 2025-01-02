@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Department</title>
+    <style>
+        /* 页面整体基础样式 */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* 全局容器 */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题 */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #ff9800;
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* 表单样式 */
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #fb8c00;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* 错误消息 */
+        .error-message {
+            color: #f44336;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Update Department</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="id">Department ID:</label>
+            <input type="text" id="id" name="id" value="{{ department.id }}" required><br>
+
+            <label for="title">Department Title:</label>
+            <input type="text" id="title" name="title" value="{{ department.title }}" required><br>
+
+            <label for="name">Employee Name:</label>
+            <input type="text" id="name" name="name" value="{{ department.name }}" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" value="{{ department.phone }}" required><br>
+
+            <label for="sex">Sex:</label>
+            <input type="text" id="sex" name="sex" value="{{ department.sex }}" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="{{ department.age }}" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ department.email }}" required><br>
+
+            <button type="submit">Update Department</button>
+        </form>
+
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        <!-- 返回列表按钮 -->
+        <a href="{% url 'depart' %}" class="back-btn">Back to Department List</a>
+    </div>
+
+</body>
+</html>

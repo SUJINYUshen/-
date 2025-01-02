@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Department</title>
+    <style>
+        /* 页面整体基础样式 */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* 全局容器 */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标题 */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #4CAF50;
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* 表单样式 */
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Create New Department</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="title">Department Title:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="name">Employee Name</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required><br>
+
+            <label for="sex">Sex:</label>
+            <input type="text" id="sex" name="sex" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <button type="submit">Create Department</button>
+        </form>
+
+        <!-- 返回列表按钮 -->
+        <a href="{% url 'depart' %}" class="back-btn">Back to Department List</a>
+    </div>
+
+</body>
+</html>

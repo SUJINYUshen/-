@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        td a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        {% csrf_token %}
+        <h1>Department Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Department Name</th>
+                    <th>Manager</th>
+                    <th>Employee Count</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marketing</td>
+                    <td>John Doe</td>
+                    <td>25</td>
+                    <td><a href="/department/marketing/">View Details</a></td>
+                </tr>
+                <tr>
+                    <td>Engineering</td>
+                    <td>Jane Smith</td>
+                    <td>50</td>
+                    <td><a href="/department/engineering/">View Details</a></td>
+                </tr>
+                <tr>
+                    <td>Sales</td>
+                    <td>Michael Johnson</td>
+                    <td>30</td>
+                    <td><a href="/department/sales/">View Details</a></td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>Emily Davis</td>
+                    <td>15</td>
+                    <td><a href="/department/hr/">View Details</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
